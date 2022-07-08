@@ -10,12 +10,20 @@
         color: red;
       }
 
-      [tabindex="1"]:hover{
-        color: red;
-      }
+      /* a标签的交互状态顺序
 
+      a:link
+      a:visited
+      a:focus
+      a:hover
+      a:active
+      */
       [tabindex="1"]:focus{
         color: blue;
+      }
+
+      [tabindex="1"]:hover{
+        color: red;
       }
 
       [tabindex="1"]:active{
@@ -42,37 +50,52 @@
         color: pink;
       }
 
-      a:nth-of-type(5), a:nth-of-type(6){
+      /* a:nth-of-type(5), a:nth-of-type(6){
+        color: blue;
+      } */
+      a[href^="mailto:" i]{
         color: blue;
       }
 
-      a:nth-of-type(7), a:nth-of-type(8){
+      /* a:nth-of-type(7), a:nth-of-type(8){
+        color: yellow;
+      } */
+
+      a[href^="tel:" i]{
         color: yellow;
       }
 
-      a:nth-of-type(9), a:nth-of-type(10){
+      /* a:nth-of-type(9), a:nth-of-type(10){
+        font-size: 30px;
+      } */
+
+      a[href$=".pdf" i]{
         font-size: 30px;
       }
 
-      div.a > ul > li:nth-child(n + 4):not(:nth-child(n + 8)){
+      div.a ul li:nth-child(n + 4):not(:nth-child(n + 8)){
         color: red;
       }
 
-      div.b > ul > li:nth-child(n):not(:nth-child(n + 26)){
+      /* div.b > ul > li:nth-child(n):not(:nth-child(n + 26)){
+        color: red;
+      } */
+
+      div.b ul li:nth-child(-n + 25){
         color: red;
       }
 
-      div.b > ul > li:nth-child(n + 65){
+      div.b ul li:nth-child(n + 65){
         color: green;
       }
 
-      div.b > ul > li:nth-child(n + 35):not(:nth-child(n + 51)){
+      div.b ul li:nth-child(n + 35):not(:nth-child(n + 51)){
         color: blue;
       }
 
       /* 把所有数除自己以外的倍数上的位置元素都选中，剩下的就是素数 */
 
-      div.prime > ul > li{
+      /* div.prime > ul > li{
         color: red;
       }
       div.prime > ul > li:first-child{
@@ -97,7 +120,18 @@
 
       div.prime > ul > li:nth-child(7n + 14){
         color: grey;
+      } */
+      .prime {
+        color: red;
       }
+      .prime li:first-child,
+      .prime li:nth-child(2n + 4),
+      .prime li:nth-child(3n + 9),
+      .prime li:nth-child(5n + 25),
+      .prime li:nth-child(7n + 49){
+        color: black;
+      }
+
     </style>
   </head>
   <body>
