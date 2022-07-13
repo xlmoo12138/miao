@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, h2{
+      margin: 0;
+    }
+
+    .input{
+      padding: 0;
+    }
+
+    aside{
+      width: 200px;
+      height: 100vh;
+      border: 1px solid;
+      background-color: pink;
+      box-sizing: border-box;
+
+      overflow: hidden;
+    }
+
+    main{
+      width: calc(100% - 600px);
+      height: 100vh;
+      border-left: 2px solid;
+      margin-left: 200px;
+      margin-top: -100vh;
+      background-color: rgb(255,248,220);
+
+      overflow: hidden;
+    }
+
+    .sidebar{
+      width: 200px;
+      height: 100vh;
+      border-left: 2px solid;
+      background-color: pink;
+      margin-left: auto;
+      margin-right: 200px;
+      margin-top: -100vh;
+    }
+
+    .aside{
+      width: 200px;
+      height: 100vh;
+      border-left: 2px solid;
+      background-color: pink;
+      margin-left: auto;
+      margin-right: 0;
+      margin-top: -100vh;
+    }
+
+
+    h1, .sidebar h2, .aside h2{
+      text-align: right;
+      margin: 0 0.5em;
+      font-size: 24px;
+      line-height: 3;
+    }
+
+    .fantasy h2{
+      text-align: left;
+      width: 100px;
+      margin: 0 1em;
+      font-size: 24px;
+      line-height: 3;
+    }
+
+    .fantasy{
+      border-bottom: 2px solid;
+    }
+
+    aside div{
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    input{
+      height: 25px;
+      width: 150px;
+    }
+
+    button{
+      height: 25px;
+      width: 35px;
+      vertical-align: text-top;
+    }
+
+    aside ul{
+      list-style: none;
+      height: calc(100vh - 103px);
+      overflow: auto;
+    }
+
+    div.main{
+      padding: 10px;
+      height: calc(100vh - 72px);
+      overflow: auto;
+    }
+
+    aside ul a{
+      text-decoration: none;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <aside>
+      <h1>OALD Se7en</h1>
+      <div><input type="text" value=""><button></button></div>
+      <ul>
+        <li><a href="#">word1</a></li>
+        <li><a href="#">word2</a></li>
+        <li><a href="#">word3</a></li>
+        <li><a href="#">word4</a></li>
+        <li><a href="#">word5</a></li>
+        <li><a href="#">word6</a></li>
+        <li><a href="#">word7</a></li>
+        <li><a href="#">word8</a></li>
+        <li><a href="#">word9</a></li>
+        <li><a href="#">word10</a></li>
+        <li><a href="#">word11</a></li>
+        <li><a href="#">word12</a></li>
+        <li><a href="#">word13</a></li>
+        <li><a href="#">word14</a></li>
+        <li><a href="#">word15</a></li>
+        <li><a href="#">word16</a></li>
+        <li><a href="#">word17</a></li>
+        <li><a href="#">word18</a></li>
+        <li><a href="#">word19</a></li>
+        <li><a href="#">word20</a></li>
+        <li><a href="#">word21</a></li>
+        <li><a href="#">word22</a></li>
+        <li><a href="#">word23</a></li>
+        <li><a href="#">word24</a></li>
+        <li><a href="#">word25</a></li>
+        <li><a href="#">word26</a></li>
+        <li><a href="#">word27</a></li>
+        <li><a href="#">word28</a></li>
+        <li><a href="#">word29</a></li>
+        <li><a href="#">word30</a></li>
+        <li><a href="#">word31</a></li>
+        <li><a href="#">word32</a></li>
+        <li><a href="#">word33</a></li>
+        <li><a href="#">word34</a></li>
+        <li><a href="#">word35</a></li>
+        <li><a href="#">word36</a></li>
+        <li><a href="#">word37</a></li>
+        <li><a href="#">word38</a></li>
+        <li><a href="#">word39</a></li>
+        <li><a href="#">word40</a></li>
+        <li><a href="#">word41</a></li>
+        <li><a href="#">word42</a></li>
+        <li><a href="#">word43</a></li>
+        <li><a href="#">word44</a></li>
+        <li><a href="#">word45</a></li>
+        <li><a href="#">word46</a></li>
+        <li><a href="#">word47</a></li>
+        <li><a href="#">word48</a></li>
+        <li><a href="#">word49</a></li>
+        <li><a href="#">word50</a></li>
+        <li><a href="#">word51</a></li>
+        <li><a href="#">word52</a></li>
+        <li><a href="#">word53</a></li>
+        <li><a href="#">word54</a></li>
+        <li><a href="#">word55</a></li>
+        <li><a href="#">word56</a></li>
+        <li><a href="#">word57</a></li>
+        <li><a href="#">word58</a></li>
+        <li><a href="#">word59</a></li>
+        <li><a href="#">word60</a></li>
+      </ul>
+    </aside>
+    <main>
+      <div class="fantasy">
+        <h2>fantasy</h2>
+      </div>
+      <div class="main">
+        <p>Lorem,ipsurm.</p>
+        <ol>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Illo magni, voluptate inventore vitae quia culpa corrupti
+            molestiae consequuntur sed aperiam repudiandae unde velit
+            quo quisquam ullam. At repudiandae cumque ducimus!
+          </li>
+        </ol>
+      </div>
+    </main>
+    <div class="sidebar">
+      <h2>Vocabulary</h2>
+    </div>
+    <div class="aside">
+      <h2>History</h2>
+    </div>
+
+  </div>
+</body>
+</html>
