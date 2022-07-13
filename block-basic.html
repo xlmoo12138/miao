@@ -6,45 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    body{
+      margin: 20px;
+    }
     .p1{
       background-color: red;
-      min-width: 500px;
+      min-width: 600px;
     }
     .a{
       xbackground-color: red;
-      width: 500px;
+      width: 600px;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 20px;
 
     }
     .p2{
-      width: 600px;
-      margin: 20px auto;
-      border: 3px solid;
+      box-sizing: border-box;
+      max-width: 600px;
+      margin: 10px auto;
+      border: 2px solid;
+      padding: 10px;
     }
-    .b{
-      margin: 10px;
-      height: 70px;
+    .b, .d{
+      margin: 0;
+      height: 4em;
 
       overflow: auto;
     }
 
     .c{
-      height: 40px;
-      margin: 10px;
+      height: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       background-color: violet;
     }
 
     .c:hover{
       margin: 0px;
-    }
+      margin-left: -10px;
+      margin-right: -10px;
 
-    .d{
-      margin: 10px;
-      height: 70px;
-
-      overflow: auto;
     }
 
     .e{
