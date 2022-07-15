@@ -7,51 +7,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    body{
+    html{
+      height: 100%;
+    }
+    body {
       margin: 0;
-      min-width: 800px;
+      height: 100%;
+      min-width: 600px;
     }
 
-    div{
+    header {
+      box-sizing: border-box;
+      border: 1px solid rgb(95,158,160);
+      height: 100px;
+      background-color: rgb(95,158,160);
+    }
+
+    div {
+      height: calc(100% - 100px);
       font-size: 0;
     }
 
-    div *{
+    div > *{
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+      overflow: auto;
       font-size: 16px;
     }
 
-    aside, main{
-      display: inline-block;
-      overflow: auto;
-    }
-
-    header{
-      box-sizing: border-box;
-      height: 100px;
-      background-color: rgb(95, 158, 160);
-      border-bottom: 1px solid rgb(95, 158, 160);
-    }
-
-    aside{
+    aside {
       width: 200px;
-      height: calc(100vh - 100px);
-      background-color: rgb(160, 82, 45);
-
-
+      background-color: rgb(160,82,45);
     }
 
-    main{
-      vertical-align: top;
+    main {
       width: calc(100% - 200px);
-      height: calc(100vh - 100px);
       background-color: rgb(0,128,128);
     }
 
   </style>
 </head>
+
 <body>
+  <header></header>
   <div>
-    <header></header>
     <aside>
       <ul>
         <li></li>
@@ -127,7 +127,19 @@
       ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
       ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
-
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis necessitatibus debitis. Nisi harum beatae
+      ratione iusto reiciendis illum neque nulla, quos tempore modi eaque velit soluta aliquam pariatur tenetur.
     </main>
   </div>
 
