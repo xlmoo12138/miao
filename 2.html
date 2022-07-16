@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body, section{
+      height: 100%;
+      margin: 0;
+    }
+
+    section{
+      font-size: 0;
+    }
+
+
+    section > *{
+      display: inline-block;
+      height: 100%;
+      font-size: 16px;
+      box-sizing: border-box;
+      border: 1px solid;
+    }
+
+    section > aside{
+      width: 150px;
+      background-color: pink;
+    }
+
+    section > div{
+      width: calc(100% - 450px);
+      background-color: blanchedalmond;
+    }
+
+    header{
+      height: 100px;
+      border-bottom: 2px solid;
+    }
+
+    main{
+      height: calc(100% - 100px);
+      overflow: scroll;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <aside></aside>
+    <div>
+      <header></header>
+      <main></main>
+    </div>
+    <aside></aside>
+    <aside></aside>
+  </section>
+</body>
+</html>
