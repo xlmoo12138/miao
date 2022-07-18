@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    div.a {
+      margin: 0;
+      height: 100%;
+    }
+
+    div.a{
+      font-size: 0;
+    }
+
+    aside, main, div.b, div.c{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    aside {
+      width: 200px;
+      height: 100%;
+      background-color: blue;
+    }
+
+    main{
+      width: calc(100% - 600px);
+      height: 100%;
+      background-color: bisque;
+    }
+
+    div.b, div.c{
+      width: 200px;
+      height: 100%;
+      background-color: aquamarine;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="a">
+    <aside>
+        <h1>火影忍者</h1>
+        <div><input type="text" value=""><button></button></div>
+    </aside>
+    <main>
+      <header></header>
+      <section></section>
+    </main>
+    <div class="b"></div>
+    <div class="c"></div>
+  </div>
+
+</body>
+
+</html>
