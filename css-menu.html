@@ -7,217 +7,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    section{
-      font-size: 0;
-      width: 540px;
-      margin: 0 auto;
-      background-color: rgb(60, 60, 60);
-    }
-
-    section *{
-      font-size: 24px;
-    }
-    div {
-      display: inline-block;
-      width: 90px;
-      height: 40px;
-      text-align: left;
-      line-height: 1.5;
-      position: relative;
-      background-color: rgb(60, 60, 60);
-      color: rgb(139, 139, 139);
-    }
-
-    div span{
-      margin: 0 20px;
-    }
-
-    ul.a {
+    ul {
       list-style: none;
-      display: none;
       margin: 0;
       padding: 0;
+    }
+
+    .menu {
+      padding: .5em;
+    }
+
+    /* 让第一层菜单项横向排列 */
+    .menu > li {
+      display: inline-block;
+    }
+
+    .menu li {
+      position: relative;
+      white-space: nowrap;
+      /*设置文字不折行 */
+      padding: 0 .5em;
+    }
+
+    .menu ul {
+      padding-top: .5em;
+      padding-bottom: .5em;
       position: absolute;
       left: 0;
       top: 100%;
-      white-space: nowrap;
-      background-color: violet;
-      border-radius: 8px;
-    }
-
-    ul li {
-      width: 150px;
-    }
-
-    #p1,
-    #p2 {
-      position: relative;
-    }
-
-    ul.b,
-    ul.c {
-      list-style: none;
       display: none;
-      margin: 0;
-      padding: 0;
+      box-shadow: 0 0 5px #333;
+      border-radius: .3em;
+    }
+
+    /* 选中第三层及更深层的ul */
+    .menu ul ul {
+      left: 100%;
+      top: -.5em;
+    }
+
+    .menu,
+    .menu ul {
+      background-color: #3c3c3c;
+      color: #c4c4c4;
+    }
+
+    .menu li:hover > ul {
+      display: block;
+    }
+
+    .menu ul li:hover {
+      background-color: rgb(4, 57, 94);
+    }
+
+    .menu li li {
+      padding: 0 120px 0 10px;
+    }
+
+    .menu li li > span {
       position: absolute;
-      left: 150px;
+      right: 10px;
       top: 0;
-      background-color: violet;
-      border-radius: 8px;
     }
 
-
-    div:hover>.a {
-      display: block;
+    .menu li > hr{
+      margin-left: -10px;
+      margin-right: -120px;
+      border: none;
+      border-top: 1px solid #606060;
     }
 
-    ul li:hover {
-      background-color: aquamarine;
-    }
-
-    #p1:hover>.b {
-      display: block;
-    }
-
-    #p2:hover>.c {
-      display: block;
-    }
 
   </style>
 </head>
 
 <body>
-  <section>
-    <div><span>文件</span>
-      <ul class="a">
-        <li>新建文本文件</li>
-        <li>新建文件...</li>
-        <li id="p1">打开最近文件
-          <ul class="b">
-            <li>1.html</li>
-            <li>2.html</li>
-            <li>3.html</li>
-            <li id="p2">4.html
-              <ul class="c">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-              </ul>
-            </li>
-          </ul>
+  <ul class="menu">
+    <li>文件(F)
+      <ul>
+        <li>新建文本文件
+          <span>Ctrl+N</span>
         </li>
-        <li>保存</li>
-      </ul>
-    </div>
-    <div><span>编辑</span>
-      <ul class="a">
-        <li>撤销</li>
-        <li>恢复</li>
-        <li id="p1">查找
-          <ul class="b">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li id="p2">4
-              <ul class="c">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-              </ul>
-            </li>
-          </ul>
+        <li>新建文件...
+          <span>Ctrl+Alt+Windows+N</span>
         </li>
-        <li>粘贴</li>
-      </ul>
-    </div>
-    <div><span>选择</span>
-      <ul class="a">
-        <li>全选</li>
-        <li>扩大选区</li>
-        <li id="p1">选择模式
-          <ul class="b">
-            <li>超人</li>
-            <li>钢铁侠</li>
-            <li>蜘蛛侠</li>
-            <li id="p2">孙悟空
-              <ul class="c">
-                <li>唐僧</li>
-                <li>猪八戒</li>
-                <li>沙和尚</li>
-              </ul>
-            </li>
-          </ul>
+        <li>新建窗口
+          <span>Ctrl+Shift+N</span>
         </li>
-        <li>重复选择</li>
-      </ul>
-    </div>
-    <div><span>查看</span>
-      <ul class="a">
-        <li>命令面板...</li>
-        <li>打开视图...</li>
-        <li id="p1">外观
-          <ul class="b">
-            <li>全屏</li>
-            <li>禅模式</li>
-            <li>居中布局</li>
-            <li id="p2">面板位置
-              <ul class="c">
-                <li>底部</li>
-                <li>右</li>
-                <li>左</li>
-              </ul>
-            </li>
-          </ul>
+        <li>
+          <hr>
         </li>
-        <li>编辑器布局</li>
-      </ul>
-    </div>
-    <div><span>转到</span>
-      <ul class="a">
-        <li>返回</li>
-        <li>编辑位置</li>
-        <li id="p1">切换组
-          <ul class="b">
-            <li>第1组</li>
-            <li>第2组</li>
-            <li>第3组</li>
-            <li id="p2">第4组
-              <ul class="c">
-                <li>看什么</li>
-                <li>啊</li>
-                <li>亲一口</li>
-              </ul>
-            </li>
-          </ul>
+        <li>打开文件...
+          <span>Ctrl+O</span>
         </li>
-        <li>转到定义</li>
-      </ul>
-    </div>
-    <div><span>运行</span>
-      <ul class="a">
-        <li>开始</li>
-        <li>启动调试</li>
-        <li id="p1">新建断点
-          <ul class="b">
-            <li>条件断点</li>
-            <li>内联断点</li>
-            <li>函数断点</li>
-            <li id="p2">记录点
-              <ul class="c">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-              </ul>
-            </li>
-          </ul>
+        <li>打开文件夹...
+          <span>Ctrl+K Ctrl+O</span>
         </li>
-        <li>切换断点</li>
+        <li>从文件打开工作区...</li>
+        <li>打开最近的文件
+          <ul>
+            <li>css-block.html</li>
+            <li>css-font.html</li>
+            <li>block-basic.html</li>
+          </ul>
+          <span>></span>
+        </li>
+        <li>
+          <hr>
+        </li>
+        <li>将文件夹添加到工作区...</li>
+        <li>将工作区另存为...</li>
+        <li>复制工作区</li>
+        <li>
+          <hr>
+        </li>
+        <li>保存
+          <span>Ctrl+S</span>
+        </li>
+        <li>另存为...
+          <span>Ctrl+Shift+S</span>
+        </li>
+        <li>全部保存
+          <span>Ctrl+K S</span>
+        </li>
       </ul>
-    </div>
-  </section>
-
-
+    </li>
+    <li>编辑(E)</li>
+    <li>选择(S)</li>
+    <li>查看(V)</li>
+  </ul>
 </body>
 
 </html>
