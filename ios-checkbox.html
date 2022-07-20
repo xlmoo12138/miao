@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+
+    .ios-switch{
+      display: none;
+    }
+    .ios-switch + .btn{
+      width: 102px;
+      height: 62px;
+      border: 3px solid #adadad;
+      display: inline-block;
+      background-color: #fff;
+      border-radius: 31px;
+      position: relative;
+    }
+
+    .ios-switch + .btn .circle{
+      width: 54px;
+      height: 54px;
+      border-radius: 27px;
+      background-color: #fff;
+      box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+      position: absolute;
+      left: 4px;
+      top: 4px;
+    }
+
+    .ios-switch:checked + .btn{
+      background-color: #30F349;
+    }
+    .ios-switch:checked + .btn .circle{
+      left: 43px;
+      transition: all 300ms cubic-bezier(.45,1,.4,1);
+    }
+
+
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="slider" class="ios-switch">
+  <label for="slider" class="btn">
+    <div class="circle"></div>
+  </label>
+
+</body>
+<script src="./css/less.js"></script>
+</html>

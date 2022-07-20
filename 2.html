@@ -1,59 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    html, body, section{
-      height: 100%;
-      margin: 0;
+  <style type="text/less">
+    .btn {
+      border-radius: 31px;
+      width: 102px;
+      height: 62px;
+      background-color: #e9e9eb;
     }
 
-    section{
-      font-size: 0;
+    .ios-switch {
+      position: relative;
+      appearance: none;
+      cursor: pointer;
+      transition: all 100ms;
+      @extend .btn;
+
+      &::before {
+        position: absolute;
+        content: "";
+        transition: all 300ms cubic-bezier(.45, 1, .4, 1);
+        @extend .btn;
+      }
+
+      &::after {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        border-radius: 27px;
+        width: 54px;
+        height: 54px;
+        background-color: #fff;
+        box-shadow: 1px 1px 5px rgba(#000, .3);
+        content: "";
+        transition: all 300ms cubic-bezier(.4, .4, .25, 1.35);
+      }
+
+      &:checked {
+        background-color: #5eb662;
+
+        &::before {
+          transform: scale(0);
+        }
+
+        &::after {
+          transform: translateX(40px);
+        }
+      }
     }
 
-
-    section > *{
-      display: inline-block;
-      height: 100%;
-      font-size: 16px;
-      box-sizing: border-box;
-      border: 1px solid;
-    }
-
-    section > aside{
-      width: 150px;
-      background-color: pink;
-    }
-
-    section > div{
-      width: calc(100% - 450px);
-      background-color: blanchedalmond;
-    }
-
-    header{
-      height: 100px;
-      border-bottom: 2px solid;
-    }
-
-    main{
-      height: calc(100% - 100px);
-      overflow: scroll;
-    }
   </style>
 </head>
+
 <body>
-  <section>
-    <aside></aside>
-    <div>
-      <header></header>
-      <main></main>
-    </div>
-    <aside></aside>
-    <aside></aside>
-  </section>
+  <input type="checkbox" class="ios-switch"><button class="btn"></button>
+
 </body>
+<script src="./css/less.js"></script>
 </html>

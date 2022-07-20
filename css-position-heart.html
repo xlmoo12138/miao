@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+    div{
+      width: 100px;
+      height: 100px;
+      border:3px solid red;
+      margin: 100px auto;
+      position: relative;
+      overflow: hidden;
+      img{
+        position: absolute;
+        left: 0;
+        &:hover{
+          left: -2800px;
+          transition: 1s steps(28);
+        }
+      }
+    }
+
+    input{
+      display: none;
+    }
+    input + .heart2{
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      border:3px solid red;
+      background-image: url(./mao/2.png);
+      overflow: hidden;
+    }
+    input:checked + .heart2{
+      transition: 1s steps(28);
+      background-position: -2800px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="cb1">
+  <label for="cb1" class="heart2"></label>
+  <div>
+    <img src="./mao/2.png" alt="">
+  </div>
+</body>
+<script src="./css/less.js"></script>
+
+</html>
