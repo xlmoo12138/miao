@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+    h2{
+      width: 200px;
+      margin: 0 auto;
+    }
+    .table{
+      border-collapse: collapse;
+      width: 180px;
+      height: 180px;
+      margin: 10px auto;
+      td{
+      border: 5px solid blue;
+      text-align: center;
+      color: aquamarine;
+      }
+
+      td:hover {
+      border: 5.1px solid red;
+    }
+    }
+
+      ul{
+        list-style: none;
+        padding: 0;
+        width: 180px;
+        height: 180px;
+        margin: 10px auto;
+        position: relative;
+      }
+
+      li{
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-left: -5px;
+        margin-top: -5px;
+        text-align: center;
+        line-height: 50px;
+        color: aquamarine;
+        border: 5px solid blue;
+        position: relative;
+      }
+      li:hover::after{
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: 100%;
+        height: 100%;
+        border: 5px solid red;
+        z-index: 1000;
+      }
+
+      .container{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        width: 180px;
+        height: 180px;
+        margin: 10px auto;
+      }
+
+      div{
+        width: 50px;
+        height: 50px;
+        margin-left: -5px;
+        border: 5px solid blue;
+        text-align: center;
+        line-height: 50px;
+        color: aquamarine;
+        position: relative;
+      }
+      .container div:nth-child(n+4) {
+        border-top: 0;
+      }
+      div:hover::after {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: 100%;
+        height: 100%;
+        border: 5px solid red;
+        z-index: 1000;
+      }
+  </style>
+</head>
+
+<body>
+  <h2>table布局</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>float布局</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+  <h2>flex布局</h2>
+  <section class="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+  </section>
+</body>
+<script src="/css/less.js"></script>
+
+</html>

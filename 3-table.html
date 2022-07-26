@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/less">
+    .table{
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .table th{
+      text-align: left;
+    }
+    .table td,
+    .table th {
+      padding: 10px;
+    }
+    .table tr{
+      border-bottom: 1px solid #e2eee6;
+    }
+    .table-sm td,
+    .table-sm th {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    .table-striped tbody tr:nth-child(odd){
+      background-color: #f2f2f2;
+    }
+    .table-hover tbody tr:hover{
+      background-color: #ececec;
+    }
+    .table-bordered th,
+    .table-bordered td {
+      border: 1px solid #dee2e6;
+    }
+    .table-borderless tr{
+      border: hidden;
+    }
+    .table-dark {
+      background-color: #212529;
+      color: white;
+    }
+    .table-striped.table-dark tbody tr:nth-child(odd) {
+      background-color: #2c3034;
+    }
+    .table-dark tr{
+      border-bottom-color: 1px solid #373b3e;
+    }
+    .table-hover.table-dark tbody tr:hover {
+      background-color: #323539;
+    }
+    .table-striped-columns tr :nth-child(even){
+      background-color: grey;
+    }
+  </style>
+</head>
+<body>
+  <table class="table xtable-sm xtable-striped xtable-hover xtable-bordered xtable-borderless xtable-dark table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+<script src="/css/less.js"></script>
+</html>
