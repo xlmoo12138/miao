@@ -1,0 +1,174 @@
+
+
+<script  id="ch0103/01">
+  var a = Number(prompt('请输入一个整数：'))
+  var b = Number(prompt('请输入一个整数：'))
+
+  alert(a+b);
+</script>
+
+<script  id="ch0103/02">
+  var a = Number(prompt('请输入一个整数：'))
+  var b = Number(prompt('请输入一个整数：'))
+  var c = Number(prompt('请输入一个整数：'))
+
+  var r = (a + b) * c
+  alert(r)
+</script>
+<script  id="ch0103/03">
+  var a = prompt('请输入一个整数：') - 0
+  var b = prompt('请输入一个整数：') - 0
+  var c = prompt('请输入一个整数：') - 0
+
+  var d = (a + b) / c
+  console.log(parseInt(d));
+</script>
+<script  id="ch0103/04">
+  var a = Number(prompt('请输入一个被除数：'))
+  var b = Number(prompt('请输入一个除数：'))
+
+  var r1 = parseInt(a / b)
+  var r2 = parseInt(a % b)
+  console.log(r1,r2);
+</script>
+<script  id="ch0103/05">
+  var a = +prompt()
+  var b = +prompt()
+
+  var r = a / b
+  console.log(r.toFixed(9));
+</script>
+<script  id="ch0103/06">
+  var a = Number(prompt())
+  var b = Number(prompt())
+
+  var r = (b / a) * 100
+  console.log(r.toFixed(3) + '%');
+</script>
+<script  id="ch0103/07">
+  var x = +prompt()
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = +prompt()
+
+  var r = a * (x**3) + b * (x**2) + c * x + d
+  console.log(r.toFixed(7));
+</script>
+<script  id="ch0103/08">
+  var f = +prompt()
+
+  var c = 5 * (f - 32) / 9
+  console.log(c.toFixed(5));
+</script>
+<script  id="ch0103/09">
+  var r = +prompt()
+
+  var a = r * 2
+  var b = 2 * 3.14159 * r
+  var c = 3.14159 * (r**2)
+  console.log(a.toFixed(4));
+  console.log(b.toFixed(4));
+  console.log(c.toFixed(4));
+</script>
+<script  id="ch0103/10">
+  var r1 = +prompt()
+  var r2 = +prompt()
+
+  var r = 1 / (1 / r1 + 1 / r2)
+  console.log(r.toFixed(2));
+</script>
+<script  id="ch0103/11">
+  var a = +prompt()
+  var b = +prompt()
+
+  var r = a % b
+  console.log(r.toFixed(4));
+</script>
+<script  id="ch0103/12">
+  var r = +prompt()
+
+  var v = 4 / 3 * 3.14 * (r**3)
+  console.log(v.toFixed(2));
+</script>
+<script  id="ch0103/13">
+  var a = +prompt()
+
+  var b = a % 10
+  var c = parseInt((a / 10)) % 10
+  var d = parseInt((a / 100)) % 10
+  var r = '' + b + c + d
+  console.log(r);
+</script>
+<script  id="ch0103/14">
+  var h = +prompt()
+  var r = +prompt()
+
+  var v = (3.14159 * r * r * h) / 1000
+  var barrel = 20 / v
+  console.log(Math.ceil(barrel));
+</script>
+<script  id="ch0103/15">
+  var n = +prompt()
+  var x = +prompt()
+  var y = +prompt()
+
+  var apple = parseInt(n - y / x)
+  console.log(apple);
+</script>
+<script  id="ch0103/16">
+  var xa = +prompt()
+  var ya = +prompt()
+  var xb = +prompt()
+  var yb = +prompt()
+
+  var A = xa - xb
+  var B = ya - yb
+  var line = Math.sqrt(A * A + B * B)
+  console.log(line.toFixed(3));
+</script>
+<script  id="ch0103/17">
+  var x1 = +prompt()
+  var y1 = +prompt()
+  var x2 = +prompt()
+  var y2 = +prompt()
+  var x3 = +prompt()
+  var y3 = +prompt()
+
+  var A1 = x1 - x2
+  var B1 = x2 - x3
+  var C1 = x3 - x1
+  var A2 = y1 - y2
+  var B2 = y2 - y3
+  var C2 = y3 - y1
+
+  var a = Math.sqrt(A1 * A1 + A2 * A2)
+  var b = Math.sqrt(B1 * B1 + B2 * B2)
+  var c = Math.sqrt(C1 * C1 + C2 * C2)
+  var p = (a + b + c) / 2
+
+  var S = Math.sqrt(p * (p - a) * (p - b) * (p - c))
+  console.log(S.toFixed(2));
+</script>
+<script  id="ch0103/18">
+  var a1 = +prompt()
+  var a2 = +prompt()
+  var n = +prompt()
+
+  var d = a2 -a1
+  var an = a1 + (n - 1) * d
+  console.log(an);
+</script>
+<script  id="ch0103/19">
+  var A = +prompt('请输入一个正整数：')
+  var B = +prompt('请输入一个正整数：')
+
+  var r = A * B
+  console.log(r);
+</script>
+<script  id="ch0103/20">
+  var n = +prompt('请输入一个非负整数：')
+
+  var r = Math.pow(2,n)
+  console.log(r);
+</script>
