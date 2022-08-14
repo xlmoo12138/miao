@@ -872,12 +872,14 @@
   console.log(count);
 </script>
 <script  id="ch0105/25">
-  var decimal = 248 // 十进制数
-  var sty = decimal.toString(7)
-  var nvy = decimal.toString(9)
+  for (var decimal = 0; ; decimal ++) {
+    var sty = decimal.toString(7)
+    var nvy = decimal.toString(9)
 
-  if (sty.charAt(0) === nvy.charAt(2) && sty.charAt(1) === nvy.charAt(1) && sty.charAt(2) === nvy.charAt(0)) {
-    console.log(decimal, sty, nvy);
+    if (sty.charAt(0) === nvy.charAt(2) && sty.charAt(1) === nvy.charAt(1) && sty.charAt(2) === nvy.charAt(0)) {
+      console.log(decimal, sty, nvy);
+      break
+    }
   }
 
 </script>
@@ -966,11 +968,459 @@
 <script  id="ch0105/31">
   var N = Number(prompt()) // 灯的总数
   var M = Number(prompt()) // 人数
-  var click = 1  // 定义奇数灯亮, 偶数灯灭
+  var str = '1'
+
+  for (var i = 2; i <= N; i++) {   // 外层循环管灯数
+    var ret = 0  // 判断奇偶，奇灯灭，偶灯亮
+    for (var j = 1; j <= M; j++) {   // 里层循环管人数
+      if (i % j == 0) {   //  让灯与人进行匹配
+        ret += 1
+      }
+    }
+    if (ret % 2 == 1) {
+      str = str + ',' + i
+    }
+  }
+  console.log(str);
+
+</script>
+<script  id="ch0105/32">
+  var n = Number(prompt())
+  var sum = 0
+
+  for (var i = 1; i <= n; i++) {
+    var t = (i + 1) / i
+    sum += t
+  }
+  console.log(sum.toFixed(4));
+</script>
+<script id="ch0105/33">
+  var n = Number(prompt())
+  var sum = 0
+
+  for (var i = 1; i <= n; i++) {
+    sum += Math.pow(-1, i+1) * (1 / i)
+  }
+  console.log(sum.toFixed(4));
+</script>
+<script id="ch0105/34">
+  var n = Number(prompt())
+  var sum = 0
+  var first = 1
+
+  for (var i = 1; i <= n; i++) {
+    first *=  i
+    sum += first
+  }
+  console.log(sum);
+</script>
+<script id="ch0105/35">
+  var n = Number(prompt())
+  var sum = 1
+  var first = 1
+
+  for (var i = 1; i <= n; i++) {
+    first = first * i
+    sum = sum + 1 / first
+  }
+  console.log(sum.toFixed(10));
+</script>
+<script id="ch0105/36">
+  var x = Number(prompt())
+  var n = Number(prompt())
+  var sum = 0
+
+  for (var i = 0; i <= n; i++) {
+    sum += Math.pow(x, i)
+  }
+  console.log(sum.toFixed(2));
+</script>
+<script  id="ch0105/37">
+  debugger
+  var M = Number(prompt()) // 体力max
+  var N = Number(prompt()) // 战斗力
+  var X = Number(prompt()) // 能量元素
+  var p = N
+
+  if (X >= Math.ceil(M / N)){  // 如果能量棒足够恢复到最大体力
+
+    while (X > 0) {
+
+      for (var i = 1; i <= M ; i++) {
+        if (i % N == 0) {  //  战斗天数是战斗力的倍数时
+          p = p + 1
+        }
+        if (p > M) {  // 如果战斗力大于战斗期的天数，则无法提升战斗力
+          break
+        }
+      }
+      X = X - Math.ceil(M / N)
+    }
+    console.log(p);
+
+  } else {
+    console.log(N);
+  }
 
 
 
 </script>
-<script  id="ch0105/21">
+<script  id="ch0105/38">
+  debugger
+  var x = Number(prompt()) // 组数
+  var temp = 0
+
+  for (var j = 0; j < x; j++) {
+    var n = Number(prompt())
+    if (n === 0) {
+      var c = Number(prompt())
+      console.log(0);
+      continue
+    }
+
+    for (var i = n; i >= 0; i--) {
+      var c = Number(prompt())
+      temp = c * i
+      if (i !== 0) {
+        console.log(temp);
+      }
+    }
+
+  }
+
+</script>
+<script  id="ch0105/39">
+  var n = Number(prompt())
+  var sum = 0
+
+  for (var i = 1; i <= n; i++) {
+    var digit = i % 10
+    if (i % 7 !== 0 && digit !== 7){
+      sum += i * i
+    }
+  }
+  console.log(sum);
+</script>
+<script  id="ch0105/40">
+  debugger
+  var n = Number(prompt())
+  var count = 0
+
+  for (var i = n; i > 0; i--) {
+     i = '' + i
+    for (var j = 0; j < i.length; j++) {
+      if (i.charAt(j) == '1') {
+        count += 1
+      }
+    }
+  }
+
+  console.log(count);
+</script>
+<script  id="ch0105/41">
+  var L = Number(prompt())
+  var R = Number(prompt())
+  var count = 0
+
+  for (var i = R; i >= L; i--) {
+     i = '' + i
+    for (var j = 0; j < i.length; j++) {
+      if (i.charAt(j) == '2') {
+        count += 1
+      }
+    }
+  }
+
+  console.log(count);
+</script>
+<script  id="ch0105/42">
+  var m = Number(prompt())
+  var n = Number(prompt())
+  var symbol = prompt()
+  var flag = Number(prompt())
+  var str = ''
+
+  if (flag) {
+
+    for (var i = 1; i <= m; i++) {  //  行数
+
+      for (var j = 1; j <= n; j++) {  //  列数
+        str += symbol
+      }
+      if (i != m) {
+        str += '\n'
+      }
+    }
+    console.log(str);
+  } else {
+    for (var i = 1; i <= m; i++) {
+      for (var j = 1; j <= n; j++) {
+        if (i == 1 || i == m || j == 1 || j == n) {
+          str += symbol
+        } else {
+          str += ' '
+        }
+      }
+      if (i != m) {
+        str += '\n'
+      }
+    }
+    console.log(str);
+  }
+
+</script>
+<script  id="ch0105/43">
+  var n = Number(prompt())
+
+  for (var i = 2; i < Math.sqrt(n); i++) {
+    while (n % i == 0) {
+      console.log(n / i);
+      break
+    }
+  }
+</script>
+<script  id="ch0105/44">
+  var n = Number(prompt())
+  var count = 0
+
+  for (var i = 2; ; i++) {
+    for (var j = 2; j < Math.sqrt(i); j++) {  //如果是素数，循环结束时，j > Math.sqrt(i)
+      if (i % j == 0) {                       //如果不是素数，循环结束时，j < Math.sqrt(i)
+        break
+      }
+    }
+    if (j > Math.sqrt(i)) {
+      count ++
+    }
+    if (count == n) {
+      break
+    }
+  }
+  console.log(i);
+
+  /* var n = Number(prompt())
+  var count = 0
+  var flag
+
+  for (var i = 2; count < n; i++) {
+    flag = 0
+    for (var j = 2; j < i; j++) {
+      if (i % j == 0) {
+        flag = 1
+      }
+    }
+    if (flag == 0) {
+      count ++
+    }
+    if (count == n) {
+      break
+    }
+  }
+
+  console.log(i); */
+</script>
+<script  id="ch0105/45">
+  var n = +prompt()
+  var sum = 0
+  var count = 0
+  var flag = 0
+
+  for (var i = 1; ; i++) {  // 控制天数
+    for (var j = 1; j <= i; j++) {  // 控制加金币的次数
+      sum += i
+      count ++   //  记录过了多少天
+      if (count == n) {
+        console.log(sum);
+        flag = 1
+        break
+      }
+    }
+    if (flag) {
+      break
+    }
+  }
+
+/*   var n = +prompt()
+  var sum = 0
+  var flag = 0
+
+  for (var i = 1; i <= n; i++) {  // 控制天数
+    flag += i
+    if (flag > n) {
+      break
+    }
+  }
+  for (var j = 1; j < i; j++) {
+    sum += j * j
+  }
+  sum += (n + i - flag) * i
+
+  console.log(sum); */
+</script>
+<script  id="narcissistic">
+  var n = Number(prompt())
+  var m = '' + n
+  var sum = 0
+
+  for (var i = 0; i < m.length; i++) {
+    var digit = n % 10
+    n = Math.floor(n / 10)
+
+    var j = 0
+    var first = 1
+    while (j < m.length) {
+      first *= digit
+      j++
+    }
+    sum += first
+  }
+
+  if (sum == +m ) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+</script>
+<script  id="narcissistics">
+  for (var i = 100; i < 1000; i++) {
+    var d = i           //  保存i的值
+    var m = '' + i
+    var sum = 0
+    for (var j = 0; j < m.length; j++) {
+      var digit = d % 10
+      d = Math.floor(d / 10)
+
+      var k = 0
+      var first = 1
+      while (k < m.length) {
+        first *= digit
+        k += 1
+      }
+      sum += first
+    }
+    if (sum == i) {
+      console.log(i);
+    }
+  }
+</script>
+<script  id="palindrom">
+  debugger
+  var n = Number(prompt())
+  var m = '' + n
+  var d = m.length
+  var flag = 0
+
+  for (var i = 0; i < d; i++) {
+    if (m.charAt(i) == m.charAt(d - (i + 1))) {
+      flag = 1
+    } else {
+      flag = 0
+      break
+    }
+  }
+  if (flag) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+</script>
+<script  id="weekday">
+
+</script>
+<script  id="complete-number">
+  var n = Number(prompt())
+  var sum = 1
+
+  for (var i = 2; i < n; i++) {
+    if (n % i == 0) {
+      sum += i
+    }
+  }
+  if (sum == n) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+</script>
+<script  id="complete-numbers">
+  for (var j = 6; j < 500; j++) {
+    var sum = 1
+    for (var i = 2; i < j ; i++) {
+      if (j % i == 0) {
+        sum += i
+      }
+    }
+    if (sum == j) {
+      console.log(j);
+    }
+  }
+</script>
+<script  id="prime">
+  var n = Number(prompt())
+  var flag = 0
+
+  for (var i = 2; i < Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      flag = 1
+    }
+  }
+  if (n == 1) {
+    flag = 1
+  }
+  if (flag == 0) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+</script>
+<script  id="primes">
+  for (var i = 2; i < 100; i++) {
+    for (var j = 2; j < Math.sqrt(i); j++) {
+      if (i % j == 0) {
+        break
+      }
+    }
+    if (j > Math.sqrt(i)) {
+      console.log(i);
+    }
+  }
+</script>
+<script  id="itob">
+  var n = Number(prompt())
+
+  console.log('' + n);
+</script>
+<script  id="lcf&lcm">
+  var m = Number(prompt())
+  var n = Number(prompt())
+  var temp, num1 = m, num2 = n
+
+  if (m >= n) {
+    while (n != 0) {
+      temp = m % n
+      m = n
+      n = temp
+    }
+    console.log(m, (num1 * num2) / m);
+  }
+  if (m <= n) {
+    while (m != 0) {
+      temp = n % m
+      n = m
+      m = temp
+    }
+    console.log(n, (num1 * num2) / n);
+  }
+</script>
+<script  id="sqrt">
+  var a = Number(prompt())
+  var x0, x1, x2
+
+  x0 = a / 2
+  x1 = (1 / 2) * (x0 + a / x0)
+  x2 = (1 / 2) * (x1 + a / x1)
+  x3 = (1 / 2) * (x2 + a / x2)
+
+  console.log(x3.toFixed(3));
 
 </script>
