@@ -25,24 +25,30 @@ var xlmoo12138 = {
     }
     return result
   },
-  difference: function (ary, ans) {
+  difference: function (ary, ...ans) {
     var result = []
 
-    for (var i = 0; i < ary.length; i++) {
-      var num = ary[i]
-      var flag = false
-      for (var j = 0; j < ans.length; j++) {
-        if (num == ans[j]) {
-          flag = true
-          break
+    var map = {}
+
+    for (var i = 0; i < ans.length; i++) {
+      for (var j = 0; j < ans[i].length; j++) {
+        var num = ans[i][j]
+        if (!map[num]) {
+          map[num] = 0
         }
-      }
-      if (!flag) {
-        result.push(ary[i])
+        map[num]++
       }
     }
+
+    for (var i = 0; i < ary.length; i++) {
+      var a = ary[i]
+      if (!(a in map)) {
+        result.push(a)
+      }
+    }
+
     return result
   },
-  
+
   fill: function() {},
 }
