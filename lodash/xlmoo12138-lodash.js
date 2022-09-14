@@ -97,6 +97,6 @@ var xlmoo12138 = {
 
   },
   head: function (ary) {
-    return ary[0] ?? undefined
+    return ary[0]
   },
 }
