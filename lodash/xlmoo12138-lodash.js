@@ -1,3 +1,5 @@
 var xlmoo12138 = {
-  chunk : function() {},
+  chunk: function (ary, size) {
+    
+  },
 }
