@@ -49,6 +49,12 @@ var xlmoo12138 = {
 
     return result
   },
+  differenceBy: function() {},
 
-  fill: function() {},
+  fill: function (ary, value, start = 0, end = ary.length) {
+    for (var i = start; i < end; i++) {
+      ary[i] = value
+    }
+    return ary
+  },
 }
