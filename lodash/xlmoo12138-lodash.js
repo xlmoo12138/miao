@@ -99,4 +99,46 @@ var xlmoo12138 = {
   head: function (ary) {
     return ary[0]
   },
+  findIndex: function (ary, predicate, fromIndex = 0) {
+    var s = predicate
+    if (typeof s == 'string') {
+      predicate = it => it[s]
+    }
+
+    for (var i = fromIndex; i < ary.length; i++) {
+      if (predicate(ary[i], i, ary)) {
+        return i
+      }
+    }
+    return -1
+  },
+  flatten: function (ary) {
+    var result = []
+
+    for (var i = 0; i < ary.length; ++i) {
+      if (Array.isArray(ary[i])) {
+        for (var j = 0; j < ary[i].length; ++j) {
+          result.push(ary[i][j])
+        }
+      } else {
+        result.push(ary[i])
+      }
+    }
+    return result
+  },
+  flattenDeep: function (ary) {
+    var result = []
+
+    for (var i = 0; i < ary.length; i++) {
+      if (Array.isArray(ary[i])) {
+        result = result.concat( flattenDeep(ary[i]) )
+      } else {
+        result = result.concat(ary[i])
+      }
+    }
+    return result
+  },
+  flattenDepth: function (ary, depth = 1) {
+    
+  }
 }
