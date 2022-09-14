@@ -16,7 +16,33 @@ var xlmoo12138 = {
     return result
   },
 
-  compact: function() {},
-  difference: function () { },
+  compact: function (ary) {
+    var result = []
+    for (var i = 0; i < ary.length; i++) {
+      if (ary[i]) {
+        result.push(ary[i])
+      }
+    }
+    return result
+  },
+  difference: function (ary, ans) {
+    var result = []
+
+    for (var i = 0; i < ary.length; i++) {
+      var num = ary[i]
+      var flag = false
+      for (var j = 0; j < ans.length; j++) {
+        if (num == ans[j]) {
+          flag = true
+          break
+        }
+      }
+      if (!flag) {
+        result.push(ary[i])
+      }
+    }
+    return result
+  },
+  
   fill: function() {},
 }
