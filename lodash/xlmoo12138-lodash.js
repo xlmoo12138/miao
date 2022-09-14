@@ -57,4 +57,24 @@ var xlmoo12138 = {
     }
     return ary
   },
+  concat: function (ary, ...values) {
+    var result = []
+
+    for (var i = 0; i < ary.length; i++) {
+      result.push(ary[i])
+    }
+
+    var ans = values
+    for (var i = 0; i < ans.length; i++) {
+      if (!Array.isArray(ans[i])) {
+        result.push(ans[i])
+      } else {
+        for (var j = 0; j < ans[i].length; j++) {
+          result.push(ans[i][j])
+        }
+      }
+    }
+
+    return result
+  },
 }
