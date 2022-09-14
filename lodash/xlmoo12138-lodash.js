@@ -77,4 +77,20 @@ var xlmoo12138 = {
 
     return result
   },
+  drop: function (ary, n = 1) {
+    var result = ary.slice()
+
+    for (var i = 1; i <= n; ++i) {
+      result.shift()
+    }
+    return result
+  },
+  dropRight: function (ary, n = 1) {
+    var result = ary.slice()
+
+    for (var i = 1; i <= n; ++i) {
+      result.pop()
+    }
+    return result
+  },
 }
