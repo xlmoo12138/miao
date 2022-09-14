@@ -4,4 +4,5 @@ var xlmoo12138 = {
   },
 
   compact: function() {},
+  difference: function() {},
 }
