@@ -93,4 +93,10 @@ var xlmoo12138 = {
     }
     return result
   },
+  dropRightWhile: function (ary, predicate) {
+
+  },
+  head: function (ary) {
+    return ary[0] ?? undefined
+  },
 }
