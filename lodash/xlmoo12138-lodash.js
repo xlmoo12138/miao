@@ -295,4 +295,15 @@ var xlmoo12138 = {
     }
     return result
   },
+  reverse: function (ary) {
+    var stop = Math.floor(ary.length / 2)
+
+    for (var i = 0; i < stop; i++) {
+      var j = ary.length - i - 1
+      var num = ary[j]
+      ary[j] = ary[i]
+      ary[i] = num
+    }
+    return ary
+  },
 }
