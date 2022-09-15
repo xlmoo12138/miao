@@ -160,7 +160,38 @@ var xlmoo12138 = {
     }
     return result
   },
-  flattenDepth: function (ary, depth = 1) {
+  flattenDepth: function flattenDepth(ary, depth = 1) {
+    var result = []
 
+    for (var i = 0; i < ary.length; ++i) {
+      if (Array.isArray(ary[i]) && depth > 0) {
+        result = result.concat( flattenDepth(ary[i], depth - 1))
+      } else {
+        result = result.concat(ary[i])
+      }
+    }
+    return result
+  },
+  join: function (ary, separator = ',') {
+    var str = ''
+
+    for (var i = 0; i < ary.length; ++i) {
+      str += ary[i]
+      if (i < ary.length - 1) {
+        str += separator
+      }
+    }
+    return str
+  },
+  last: function (ary) {
+    return ary.at(-1)
+  },
+  lastIndexOf: function (ary, value, fromIndex = ary.length - 1) {
+
+    for (var i = fromIndex; i >= 0; i--) {
+      if (ary[i] === value) {
+        return i
+      }
+    }
   }
 }
