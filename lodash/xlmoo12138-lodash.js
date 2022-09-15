@@ -321,4 +321,23 @@ var xlmoo12138 = {
     }
     return l
   },
+  sortedIndexOf: function (ary, value) {
+    var l = 0, r = ary.length - 1
+    var flag = false
+
+    while (l <= r) {
+      let mid = Math.floor((l + r) / 2)
+      let num = ary[mid]
+
+      if (num > value) {
+        r = mid - 1
+      } else if (num < value){
+        l = mid + 1
+      } else {
+        flag = true
+        r = mid - 1
+      }
+    }
+    return flag ? l : -1
+  }
 }
