@@ -126,7 +126,7 @@ var xlmoo12138 = {
     }
     return result
   },
-  flattenDeep: function (ary) {
+  flattenDeep: function flattenDeep(ary) {
     var result = []
 
     for (var i = 0; i < ary.length; i++) {
@@ -139,6 +139,6 @@ var xlmoo12138 = {
     return result
   },
   flattenDepth: function (ary, depth = 1) {
-    
+
   }
 }
