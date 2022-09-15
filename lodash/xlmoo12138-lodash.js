@@ -220,5 +220,35 @@ var xlmoo12138 = {
       }
     }
     return ary
+  },
+  findLastIndex: function (ary, predicate, fromIndex = ary.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (typeof predicate === 'function') {
+        if (predicate(ary[i])) {
+          return i
+        }
+      }
+      if (Array.isArray(predicate)) {
+        if (ary[i][predicate[0]] == predicate[1]) {
+          return i
+        }
+      }
+      if (typeof predicate === 'object') {
+        var flag = false
+        for (let key in predicate) {
+          if (ary[i][key] != predicate[key]) {
+            flag = true
+          }
+        }
+        if (!flag) {
+          return i
+        }
+      }
+      if (typeof predicate === 'string') {
+        if (ary[i][predicate]) {
+          return i
+        }
+      }
+    }
   }
 }
