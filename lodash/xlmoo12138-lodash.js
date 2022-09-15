@@ -194,5 +194,16 @@ var xlmoo12138 = {
       }
     }
     return -1
+  },
+  nth: function (ary, n = 0) {
+    var len = ary.length
+
+    if (n < 0) {
+      n = n + len
+    }
+    return ary[n]
+  },
+  pull: function (ary, ...values) {
+    
   }
 }
