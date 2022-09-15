@@ -397,5 +397,54 @@ var xlmoo12138 = {
     }
     return result
   },
-  
+  sortedUniqBy: function (ary, iteratee) {
+    var temp = []
+    var res = []
+
+    for (var i = 0; i < ary.length; i++) {
+      let num = iteratee(ary[i])
+      if (temp.indexOf(num) === -1) {
+        temp.push(num)
+        res.push(ary[i])
+      }
+    }
+    return res
+  },
+  tail: function (ary) {
+    ary.shift()
+    return ary
+  },
+  take: function (ary, n = 1) {
+    if (n >= ary.length) return ary
+
+    var result = []
+
+    for (var i = 0; i < n; i++) {
+      result.push(ary[i])
+    }
+    return result
+  },
+  takeRight: function (ary, n = 1) {
+  /*   if (n >= ary.length) return ary
+
+    var result = []
+
+    for (var i = 0; i < n; i++) {
+      result.unshift(ary.pop())
+    }
+    return result */
+    var res = []
+    if (n === 0) return []
+
+    var k = ary.length - 1
+    n = n - 1
+    while (n--) {
+      k--
+    }
+
+    for (var i = k; i < ary.length; i++) {
+      res.push(ary[i])
+    }
+    return res
+  }
 }
