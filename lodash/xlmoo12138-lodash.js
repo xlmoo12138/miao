@@ -374,4 +374,28 @@ var xlmoo12138 = {
     }
     return flag ? l - 1 : -1
   },
+  sortedUniq: function (ary) {
+   /*  var map = {}
+
+    for (var i = 0; i < ary.length; i++) {
+      var num = ary[i]
+      if (!(num in map)) {
+        map[num] = 0
+      }
+    }
+    var result = []
+    for (var key in map) {
+      result.push(+key)
+    }
+    return result */
+    var result = []
+
+    for (var i = 0; i < ary.length; i++) {
+      if (result.indexOf(ary[i]) === -1) {
+        result.push(ary[i])
+      }
+    }
+    return result
+  },
+  
 }
