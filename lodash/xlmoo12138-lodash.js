@@ -339,5 +339,20 @@ var xlmoo12138 = {
       }
     }
     return flag ? l : -1
+  },
+  sortedLastIndex: function (ary, value) {
+    var l = 0, r = ary.length - 1
+
+    while (l <= r) {
+      let mid = Math.floor((l + r) / 2)
+      let num = ary[mid]
+
+      if (num <= value) {
+        l = mid + 1
+      } else {
+        r = mid - 1
+      }
+    }
+    return l
   }
 }
