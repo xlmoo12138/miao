@@ -262,5 +262,12 @@ var xlmoo12138 = {
     }
     return map
   },
-
+  indexOf: function (ary, value, fromIndex = 0) {
+    for (var i = fromIndex; i < ary.length; i++) {
+      if (ary[i] === value) {
+        return i
+      }
+    }
+    return -1
+  }
 }
