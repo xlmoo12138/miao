@@ -315,10 +315,8 @@ var xlmoo12138 = {
 
       if (num < value) {
         l = mid + 1
-      } else if (num > value) {
+      } else {
         r = mid - 1
-      } else if (num === value) {
-        return mid
       }
     }
     return l
