@@ -425,26 +425,29 @@ var xlmoo12138 = {
     return result
   },
   takeRight: function (ary, n = 1) {
-  /*   if (n >= ary.length) return ary
+    if (n >= ary.length) return ary
 
     var result = []
 
     for (var i = 0; i < n; i++) {
       result.unshift(ary.pop())
     }
-    return result */
-    var res = []
-    if (n === 0) return []
+    return result
+  },
+  union: function (...arys) {
+    var result = []
 
-    var k = ary.length - 1
-    n = n - 1
-    while (n--) {
-      k--
+    for (var i = 0; i < arys.length; i++) {
+      var ans = arys[i]
+      for (var j = 0; j < ans.length; j++) {
+        if (result.indexOf(arys[i][j]) === -1) {
+          result.push(arys[i][j])
+        }
+      }
     }
+    return result
+  },
+  unionBy: function (iteratee) {
 
-    for (var i = k; i < ary.length; i++) {
-      res.push(ary[i])
-    }
-    return res
   }
 }
