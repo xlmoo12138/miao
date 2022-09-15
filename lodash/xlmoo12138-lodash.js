@@ -100,6 +100,28 @@ var xlmoo12138 = {
     return ary[0]
   },
   findIndex: function (ary, predicate, fromIndex = 0) {
+    if (Array.isArray(predicate)) {
+      for (var i = fromIndex; i < ary.length; i++) {
+        if (ary[i][predicate[0]] === predicate[1]) {
+          return i
+        }
+      }
+    }
+    if (typeof predicate == 'object') {
+      for (var i = fromIndex; i < ary.length; i++) {
+        var flag = false
+        for (var key in predicate) {
+          if (ary[i][key] == predicate[key]) {
+            continue
+          } else {
+            flag = true
+          }
+        }
+        if (!flag) {
+          return i
+        }
+      }
+    }
     var s = predicate
     if (typeof s == 'string') {
       predicate = it => it[s]
