@@ -447,7 +447,32 @@ var xlmoo12138 = {
     }
     return result
   },
-  unionBy: function (iteratee) {
+  unionBy: function (...arys) {
+    var temp = []
+    var result = []
+    var map = {}
+    var predicate = arys[arys.length - 1]
 
+    for (var i = 0; i < arys.length - 1; i++) {
+      var ans = arys[i]
+      for (var j = 0; j < ans.length; j++) {
+        if (typeof predicate == 'function') {
+          var num = predicate(arys[i][j])
+          if (temp.indexOf(num) === -1) {
+            temp.push(num)
+            result.push(arys[i][j])
+          }
+        }
+
+        if (typeof predicate == 'string') {
+          var key = arys[i][j][predicate]
+          if (!(key in map)) {
+            map[key] = 0
+            result.push(arys[i][j])
+          }
+        }
+      }
+    }
+    return result
   }
 }
