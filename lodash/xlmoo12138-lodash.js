@@ -269,5 +269,30 @@ var xlmoo12138 = {
       }
     }
     return -1
-  }
+  },
+  initial: function (ary) {
+    ary.pop()
+    return ary
+  },
+  intersection: function (...arys) {
+    var map = {}
+    var result = []
+
+    for (var i = 0; i < arys.length; i++) {
+      for (var j = 0; j < arys[i].length; j++) {
+        var num = arys[i][j]
+        if (!(num in map)) {
+          map[num] = 0
+        }
+        map[num]++
+      }
+    }
+
+    for (var key in map) {
+      if (map[key] === arys.length) {
+        result.push(+key)
+      }
+    }
+    return result
+  },
 }
