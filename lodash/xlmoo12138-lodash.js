@@ -250,5 +250,17 @@ var xlmoo12138 = {
         }
       }
     }
-  }
+  },
+  fromPairs: function (pairs) {
+    var map = {}
+
+    for (var i = 0; i < pairs.length; i++) {
+      var ans = pairs[i]
+      for (var j = 0; j < ans.length - 1; j++) {
+        map[ans[j]] = ans[j + 1]
+      }
+    }
+    return map
+  },
+
 }
