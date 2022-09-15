@@ -204,6 +204,21 @@ var xlmoo12138 = {
     return ary[n]
   },
   pull: function (ary, ...values) {
-    
+    for (var i = 0; i < ary.length; ++i) {
+      if (values.includes(ary[i])) {
+        ary.splice(i, 1)
+        i--
+      }
+    }
+    return ary
+  },
+  pullAll: function (ary, values) {
+    for (var i = 0; i < ary.length; ++i) {
+      if (values.includes(ary[i])) {
+        ary.splice(i, 1)
+        i--
+      }
+    }
+    return ary
   }
 }
