@@ -165,9 +165,9 @@ var xlmoo12138 = {
 
     for (var i = 0; i < ary.length; ++i) {
       if (Array.isArray(ary[i]) && depth > 0) {
-        result = result.concat( flattenDepth(ary[i], depth - 1))
+        result = result.concat( flattenDepth(ary[i], --depth))
       } else {
-        result = result.concat(ary[i])
+        result.push(ary[i])
       }
     }
     return result
