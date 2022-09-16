@@ -497,5 +497,30 @@ var xlmoo12138 = {
     }
     return res
   },
-  
+  unzip: function (arys) {
+    var result = []
+    var temp = []
+
+    var len1 = arys.length
+    var len2 = arys[0].length
+
+    for (var i = 0; i < len2; i++) {
+      for (var j = 0; j < len1; j++) {
+        temp.push(arys[j][i])
+      }
+      result.push(temp.slice()) // 不能直接传入temp
+      temp = []
+    }
+    return result
+  },
+  without: function (arys, ...values) {
+    var result = []
+
+    for (var i = 0; i < arys.length; i++) {
+      if (values.indexOf(arys[i]) == -1) {
+        result.push(arys[i])
+      }
+    }
+    return result
+  },
 }
