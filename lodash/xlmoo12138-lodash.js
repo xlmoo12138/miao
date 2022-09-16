@@ -545,4 +545,42 @@ var xlmoo12138 = {
 
     return result
   },
+  zip: function (...arys) {
+    var result = []
+    var temp = []
+
+    var len1 = arys.length
+    var len2 = arys[0].length
+
+    for (var i = 0; i < len2; i++) {
+      for (var j = 0; j < len1; j++) {
+        temp.push(arys[j][i])
+      }
+      result.push(temp.slice()) // 不能直接传入temp
+      temp = []
+    }
+    return result
+  },
+  countBy: function (ary, predicate) {
+    var n = ary.length
+    var map = {}
+
+    for (var i = 0; i < n; i++) {
+      if (typeof predicate == 'function') {
+        var num = predicate(ary[i])
+      }
+      if (typeof predicate == 'string') {
+        var num = 0
+        for (var j = 0; j < ary[i].length; j++) {
+          num++
+        }
+      }
+
+      if (!(num in map)) {
+        map[num] = 0
+      }
+      map[num]++
+    }
+    return map
+  },
 }
