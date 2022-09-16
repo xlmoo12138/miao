@@ -450,7 +450,6 @@ var xlmoo12138 = {
   unionBy: function (...arys) {
     var temp = []
     var result = []
-    var map = {}
     var predicate = arys[arys.length - 1]
 
     for (var i = 0; i < arys.length - 1; i++) {
@@ -458,21 +457,45 @@ var xlmoo12138 = {
       for (var j = 0; j < ans.length; j++) {
         if (typeof predicate == 'function') {
           var num = predicate(arys[i][j])
-          if (temp.indexOf(num) === -1) {
-            temp.push(num)
-            result.push(arys[i][j])
-          }
         }
-
         if (typeof predicate == 'string') {
-          var key = arys[i][j][predicate]
-          if (!(key in map)) {
-            map[key] = 0
-            result.push(arys[i][j])
-          }
+          var num = arys[i][j][predicate]
+        }
+        if (temp.indexOf(num) === -1) {
+          temp.push(num)
+          result.push(arys[i][j])
         }
       }
     }
     return result
-  }
+  },
+  uniq: function (ary) {
+    var result = []
+    for (var i = 0; i < ary.length; i++) {
+      if (result.indexOf(ary[i]) == -1) {
+        result.push(ary[i])
+      }
+    }
+    return result
+  },
+  uniqBy: function (ary, iteratee) {
+    var temp = []
+    var res = []
+
+    for (var i = 0; i < ary.length; i++) {
+      if (typeof iteratee == 'function') {
+        var num = iteratee(ary[i])
+      }
+      if (typeof iteratee == 'string') {
+        var num = ary[i][iteratee]
+      }
+
+      if (temp.indexOf(num) == -1) {
+        temp.push(num)
+        res.push(ary[i])
+      }
+    }
+    return res
+  },
+  
 }
