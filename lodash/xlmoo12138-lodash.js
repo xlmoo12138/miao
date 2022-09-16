@@ -523,4 +523,26 @@ var xlmoo12138 = {
     }
     return result
   },
+  xor: function (...arys) {
+    var result = []
+    var map = {}
+
+    for (var i = 0; i < arys.length; i++) {
+      for (var j = 0; j < arys[i].length; j++) {
+        var num = arys[i][j]
+        if (!(num in map)) {
+          map[num] = 0
+        }
+        map[num]++
+      }
+    }
+
+    for (var key in map) {
+      if (map[key] === 1) {
+        result.push(+key)
+      }
+    }
+
+    return result
+  },
 }
