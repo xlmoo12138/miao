@@ -100,13 +100,6 @@ var xlmoo12138 = {
     return ary[0]
   },
   findIndex: function (ary, predicate, fromIndex = 0) {
-    if (Array.isArray(predicate)) {
-      for (var i = fromIndex; i < ary.length; i++) {
-        if (ary[i][predicate[0]] === predicate[1]) {
-          return i
-        }
-      }
-    }
     if (typeof predicate == 'object') {
       for (var i = fromIndex; i < ary.length; i++) {
         var flag = false
@@ -118,6 +111,13 @@ var xlmoo12138 = {
           }
         }
         if (!flag) {
+          return i
+        }
+      }
+    }
+    if (Array.isArray(predicate)) {
+      for (var i = fromIndex; i < ary.length; i++) {
+        if (ary[i][predicate[0]] === predicate[1]) {
           return i
         }
       }
@@ -233,7 +233,7 @@ var xlmoo12138 = {
           return i
         }
       }
-      if (typeof predicate === 'object') {
+      if (typeof predicate == 'object' && !Array.isArray(predicate)) {
         var flag = false
         for (let key in predicate) {
           if (ary[i][key] != predicate[key]) {
@@ -582,5 +582,45 @@ var xlmoo12138 = {
       map[num]++
     }
     return map
+  },
+  every: function (ary, predicate) {
+    if (typeof predicate == 'object' && !Array.isArray(predicate)) {
+      for (var i = 0; i < ary.length; i++) {
+        for (var key in predicate) {
+          if (ary[i][key] != predicate[key]) {
+            return false
+          }
+        }
+      }
+    }
+
+    if (Array.isArray(predicate)) {
+      for (var i = 0; i < ary.length; i++) {
+        let num = ary[i]
+        if (num[predicate[0]] != predicate[1]) {
+          return false
+        }
+      }
+    }
+
+    if (typeof predicate == 'string') {
+      for (var i = 0; i < ary.length; i++) {
+        let num = ary[i]
+        if (!num[predicate]) {
+          return false
+        }
+      }
+    }
+
+
+    if (typeof predicate == 'function') {
+      for (var i = 0; i < ary.length; i++) {
+        if (typeof ary[i] != predicate) {
+          return false
+        }
+      }
+    }
+
+    return true
   },
 }
