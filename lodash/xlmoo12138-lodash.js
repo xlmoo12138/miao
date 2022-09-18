@@ -765,5 +765,29 @@ var xlmoo12138 = {
 
     return res
   },
+  flatMapDeep: function (clc, iteratee = this.identity) {
+    let ans = []
+
+    for (var i = 0; i < clc.length; i++) {
+      let p = clc[i]
+      ans.push(iteratee(p))
+    }
+
+    let res = flattenDeep(ans)
+    return res
+
+    function flattenDeep(ary) {
+      var result = []
+
+      for (var i = 0; i < ary.length; i++) {
+        if (Array.isArray(ary[i])) {
+          result = result.concat( flattenDeep(ary[i]) )
+        } else {
+          result = result.concat(ary[i])
+        }
+      }
+      return result
+    }
+  },
   
 }
