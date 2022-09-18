@@ -745,4 +745,25 @@ var xlmoo12138 = {
     }
     return res.flat()
   },
+  map: function (clc, iteratee = this.identity) {
+    var res = []
+
+    if (Array.isArray(clc)) {
+      for (var i = 0; i < clc.length; i++) {
+        let tmp = clc[i]
+        if (typeof iteratee == 'string') {
+          res.push(tmp[iteratee])
+        } else if (typeof iteratee == 'function'){
+          res.push(iteratee(tmp))
+        }
+      }
+    } else if (typeof clc == 'object') {
+      for (var key in clc) {
+        res.push(iteratee(clc[key]))
+      }
+    }
+
+    return res
+  },
+  
 }
