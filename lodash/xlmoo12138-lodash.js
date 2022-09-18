@@ -754,7 +754,7 @@ var xlmoo12138 = {
         if (typeof iteratee == 'string') {
           res.push(tmp[iteratee])
         } else if (typeof iteratee == 'function'){
-          res.push(iteratee(tmp))
+          res.push(iteratee(clc[i], i, clc))
         }
       }
     } else if (typeof clc == 'object') {
@@ -805,5 +805,5 @@ var xlmoo12138 = {
     }
     return clc
   },
-  
+
 }
