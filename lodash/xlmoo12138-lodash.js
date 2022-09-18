@@ -799,4 +799,11 @@ var xlmoo12138 = {
 
     return this.flattenDepth(ans, depth)
   },
+  forEach: function (clc, iteratee = this.identity) {
+    for (var key in clc) {
+      iteratee(clc[key], key, clc)
+    }
+    return clc
+  },
+  
 }
