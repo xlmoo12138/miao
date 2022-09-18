@@ -810,4 +810,15 @@ var xlmoo12138 = {
     }
     return clc
   },
+  size: function (collection) {
+    let c = 0
+    if (typeof collection == 'object') {
+      for (var key in collection) {
+        c++
+      }
+      return c
+    }
+
+    return collection.length
+  },
 }
