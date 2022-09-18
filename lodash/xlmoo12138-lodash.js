@@ -165,7 +165,7 @@ var xlmoo12138 = {
 
     for (var i = 0; i < ary.length; ++i) {
       if (Array.isArray(ary[i]) && depth > 0) {
-        result = result.concat( flattenDepth(ary[i], --depth))
+        result = result.concat( flattenDepth(ary[i], depth - 1))
       } else {
         result.push(ary[i])
       }
@@ -789,5 +789,14 @@ var xlmoo12138 = {
       return result
     }
   },
-  
+  flatMapDepth: function (clc, iteratee = this.identity, depth = 1) {
+    let ans = []
+
+    for (var i = 0; i < clc.length; i++) {
+      let p = clc[i]
+      ans.push(iteratee(p))
+    }
+
+    return this.flattenDepth(ans, depth)
+  },
 }
