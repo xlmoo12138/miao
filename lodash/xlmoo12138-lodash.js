@@ -702,5 +702,47 @@ var xlmoo12138 = {
     }
     return undefined
 
-  }
+  },
+  findLast: function (clc, predicate = this.identity, fromIndex = clc.length - 1) {
+
+    for (var i = fromIndex; i >= 0; i--) {
+      let tmp = clc[i]
+      if (Array.isArray(predicate)) {
+        if (tmp[predicate[0]] == predicate[1]) {
+          return tmp
+        }
+      }
+      if (typeof predicate == 'string') {
+        if (tmp[predicate]) {
+          return tmp
+        }
+      }
+      if (typeof predicate == 'function') {
+        if (predicate(tmp)) {
+          return tmp
+        }
+      }
+      if (typeof predicate == 'object') {
+        let flag = false
+        for (var key in predicate) {
+          if (tmp[key] != predicate[key]) {
+            flag = true
+          }
+        }
+        if (!flag) {
+          return tmp
+        }
+      }
+    }
+    return undefined
+  },
+  flatMap: function (clc, iteratee = this.identity) {
+    let res = []
+
+    for (var i = 0; i < clc.length; i++) {
+      let p = clc[i]
+      res.push(iteratee(p))
+    }
+    return res.flat()
+  },
 }
