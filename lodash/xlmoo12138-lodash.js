@@ -660,5 +660,15 @@ var xlmoo12138 = {
       }
     }
     return res
-  }
+  },
+  times: function (n, iteratee = identity) {
+    let res = []
+    for (var i = 0; i < n; i++) {
+      res.push(iteratee(i))
+    }
+    return res
+  },
+  identity: function (value) {
+    return value
+  },
 }
