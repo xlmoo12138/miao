@@ -752,7 +752,17 @@ var xlmoo12138 = {
       for (var i = 0; i < clc.length; i++) {
         let tmp = clc[i]
         if (typeof iteratee == 'string') {
-          res.push(tmp[iteratee])
+          let ans = iteratee.split('.')
+          let n = ans.length
+          if (n == 1) {
+            res.push(tmp[ans[0]])
+          } else {
+            let m = tmp
+            for (var j = 0; j < n; j++) {
+              m = m[ans[j]]
+            }
+            res.push(m)
+          }
         } else if (typeof iteratee == 'function'){
           res.push(iteratee(clc[i], i, clc))
         }
@@ -805,5 +815,4 @@ var xlmoo12138 = {
     }
     return clc
   },
-
 }
