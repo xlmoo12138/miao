@@ -626,21 +626,7 @@ var xlmoo12138 = {
   filter: function (clc, predicate) {
     let n = clc.length
     let res = []
-    if (typeof predicate == 'object') {
-      for (var i = 0; i < n; i++) {
-        let tmp = clc[i]
-        let flag = false
-        for (var key in predicate) {
-          if (tmp[key] != predicate[key]) {
-            flag = true
-          }
-        }
-        if (!flag) {
-          res.push(tmp)
-        }
-      }
-      return res
-    }
+    
     for (var i = 0; i < n; i++) {
       let tmp = clc[i]
       if (Array.isArray(predicate)) {
@@ -655,6 +641,17 @@ var xlmoo12138 = {
       }
       if (typeof predicate == 'function') {
         if (predicate(tmp)) {
+          res.push(tmp)
+        }
+      }
+      if (typeof predicate == 'object') {
+        let flag = false
+        for (var key in predicate) {
+          if (tmp[key] != predicate[key]) {
+            flag = true
+          }
+        }
+        if (!flag) {
           res.push(tmp)
         }
       }
