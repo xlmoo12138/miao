@@ -746,7 +746,7 @@ var xlmoo12138 = {
     return res.flat()
   },
   map: function (clc, iteratee = this.identity) {
-    var res = []
+    let res = []
 
     if (Array.isArray(clc)) {
       for (var i = 0; i < clc.length; i++) {
@@ -754,15 +754,10 @@ var xlmoo12138 = {
         if (typeof iteratee == 'string') {
           let ans = iteratee.split('.')
           let n = ans.length
-          if (n == 1) {
-            res.push(tmp[ans[0]])
-          } else {
-            let m = tmp
-            for (var j = 0; j < n; j++) {
-              m = m[ans[j]]
-            }
-            res.push(m)
+          for (var j = 0; j < n; j++) {
+            tmp = tmp[ans[j]]
           }
+          res.push(tmp)
         } else if (typeof iteratee == 'function'){
           res.push(iteratee(clc[i], i, clc))
         }
