@@ -808,7 +808,6 @@ var xlmoo12138 = {
     for (var key in clc) {
       iteratee(clc[key], key, clc)
     }
-    return clc
   },
   size: function (collection) {
     let c = 0
