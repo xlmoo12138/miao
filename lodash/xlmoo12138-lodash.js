@@ -849,4 +849,22 @@ var xlmoo12138 = {
 
     return map
   },
+  keyBy: function (clc, iteratee) {
+    let n = clc.length
+    let map = {}, key
+
+    for (var i = 0; i < n; i++) {
+      if (typeof iteratee == 'function') {
+        key = iteratee(clc[i])
+      } else if (typeof iteratee == 'string') {
+        key = clc[i][iteratee]
+     }
+
+      if (!(key in map)) {
+        map[key] = clc[i]
+      }
+    }
+
+    return map
+  },
 }
