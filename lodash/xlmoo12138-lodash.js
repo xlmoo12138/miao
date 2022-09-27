@@ -808,6 +808,7 @@ var xlmoo12138 = {
     for (var key in clc) {
       iteratee(clc[key], key, clc)
     }
+    return clc
   },
   size: function (collection) {
     let c = 0
@@ -819,5 +820,33 @@ var xlmoo12138 = {
     }
 
     return collection.length
+  },
+  groupBy: function (clc, iteratee) {
+    let n = clc.length
+    let map = {}
+
+    for (var i = 0; i < n; i++) {
+      if (typeof iteratee == 'string') {
+        let len = 0
+        for (var j = 0; j < clc[i].length; j++) {
+          len++
+        }
+
+        if (!(len in map)) {
+          map[len] = []
+        }
+        map[len].push(clc[i])
+      }
+
+      if (typeof iteratee == 'function') {
+        let key = iteratee(clc[i])
+        if (!(key in map)) {
+          map[key] = []
+        }
+        map[key].push(clc[i])
+      }
+    }
+
+    return map
   },
 }
