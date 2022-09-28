@@ -867,4 +867,57 @@ var xlmoo12138 = {
 
     return map
   },
+  partition: function (clc, predicate) {
+    let n = clc.length
+    let res = [], tmp1 = [], tmp2 = []
+
+    if (typeof predicate === 'function') {
+      for (var i = 0; i < n; i++) {
+        if (predicate(clc[i])) {
+          tmp1.push(clc[i])
+        } else {
+          tmp2.push(clc[i])
+        }
+      }
+    }
+
+    if (typeof predicate === 'object' && !Array.isArray(predicate)) {
+      for (var i = 0; i < n; i++) {
+        let flag = false
+        for (var key in predicate) {
+          if (predicate[key] != clc[i][key]) {
+            tmp2.push(clc[i])
+            flag = true
+            break
+          }
+        }
+        if (!flag) {
+          tmp1.push(clc[i])
+        }
+      }
+    }
+
+    if (Array.isArray(predicate)) {
+      for (var i = 0; i < n; i++) {
+        if (clc[i][predicate[0]] === predicate[1]) {
+          tmp1.push(clc[i])
+        } else {
+          tmp2.push(clc[i])
+        }
+      }
+    }
+
+    if (typeof predicate === 'string') {
+      for (var i = 0; i < n; i++) {
+        if (clc[i][predicate]) {
+          tmp1.push(clc[i])
+        } else {
+          tmp2.push(clc[i])
+        }
+      }
+    }
+
+    res.push(tmp1, tmp2)
+    return res
+  }
 }
