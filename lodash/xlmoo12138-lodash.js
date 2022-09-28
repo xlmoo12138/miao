@@ -919,5 +919,24 @@ var xlmoo12138 = {
 
     res.push(tmp1, tmp2)
     return res
-  }
+  },
+  reduce: function (clc, iteratee, accumulator) {
+    if (Array.isArray(clc)) {
+      if (accumulator === undefined) {
+        accumulator = clc[0]
+        clc.slice(1).forEach((value, index, clc) => {
+          accumulator = iteratee(accumulator, value, index, clc)
+        })
+      } else {
+        clc.forEach((value, index, clc) => {
+          accumulator = iteratee(accumulator, value, index, clc)
+        })
+      }
+    } else if (typeof clc === 'object') {
+      Object.entries(clc).forEach((value, index) => {
+        accumulator = iteratee(accumulator, value[1], value[0], index)
+      })
+    }
+    return accumulator
+  },
 }
