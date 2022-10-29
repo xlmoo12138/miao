@@ -1,0 +1,199 @@
+<script  type = 'xxx'>
+  function isCompleteNumber(n) {
+    let sum = 1
+    let end = Math.sqrt(n)
+
+    for (let i = 2; i < end; i++) {
+      if (n % i == 0) {
+        let j = n / i
+        sum += i + j
+      }
+    }
+    if (end == Math.floor(end)) {
+      sum += end
+    }
+
+    return sum === n
+  }
+  var n = +prompt()
+  console.log(isCompleteNumber(n));
+</script>
+<script type = 'xxx'>
+
+  function LargestCommonFactor(m,n) {
+    var temp = 1
+    var ret = 0
+
+    while (m % 2 == 0 && n % 2 == 0) {
+      m = m / 2
+      n = n / 2
+      temp *= 2
+    }
+
+    while () {
+      ret = Math.abs(m - n)
+      m = n
+      n = ret
+    }
+
+    var result = ret * temp
+    return result
+  }
+
+  var m = +prompt()
+  var n = +prompt()
+  console.log(LargestCommonFactor(m,n))
+
+</script>
+
+<script  type = 'xxx'>
+    function isPrime(n) {
+      if (n < 2) {
+        return false
+      }
+
+      var end = Math.sqrt(n)
+      for (var i = 2; i <= end; i++) {
+        if (n % i == 0) {
+          return false
+        }
+      }
+
+      return true
+    }
+    var n = +prompt()
+    console.log(isPrime(n));
+</script>
+<script  type = 'xxx'>
+  function isPrime(n) {
+    if (n < 2) {
+      return false
+    }
+
+    var end = Math.sqrt(n)
+    for (var i = 2; i <= end; i++) {
+      if (n % i == 0) {
+        return false
+      }
+    }
+
+    return true
+  }
+
+
+  function isPrimes(n) {
+
+    for (var i = 0; i < n; i++) {
+
+      if (isPrime(i)) {
+        console.log(i);
+      }
+    }
+  }
+
+  var n = +prompt()
+  console.log(isPrimes(n));
+</script>
+<script>
+  function isSqrt(n) {
+    let x0 = n / 2
+    let res = (1 / 2) * (x0 + n / x0)
+
+    for (var i = 0; i < 3; i++) {
+      res = (1 / 2) * (res + n / res)
+    }
+
+    return res
+  }
+  var n = +prompt()
+  console.log(isSqrt(n).toFixed(3));
+</script>
+<script>
+  for (var i = 2; i < 100; i++) {
+    for (var j = 2; j < Math.sqrt(i); j++) {
+      if (i % j == 0) {
+        break
+      }
+    }
+    if (j > Math.sqrt(i)) {
+      console.log(i);
+    }
+  }
+</script>
+
+
+<script>
+  function f1() {
+    var a = 1
+
+    function f2() {
+      var a = 2
+
+      function f3() {
+        console.log('f3:', a)
+      }
+
+      a = 22
+      f3()
+    }
+
+    console.log('f2:', a)
+    a = 100
+
+    f2()
+  }
+
+  f1()
+
+</script>
+
+<script>
+  function isPalindrom(n) {
+    var str = ''
+
+    var m = n
+    do {
+      var ge = n % 10
+      str += ge
+      n = (n - ge) / 10
+    } while (n > 0)
+
+    if (str == m) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  let n = +prompt()
+  if (isPalindrom(n)) {
+    console.log('YES');
+  } else {
+    console.log('NO');
+  }
+</script>
+<script>
+  function isPalindrom1(n) {
+    let reverse = 0
+
+    let m = n
+    do {
+      let ge = n % 10
+      reverse = reverse * 10 + ge
+      n = (n - ge) / 10
+    } while (n > 0)
+
+    if (reverse == m) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  var n = +prompt()
+  if (isPalindrom1(n)) {
+    console.log('YES');
+  } else {
+    console.log('NO')
+  }
+</script>
