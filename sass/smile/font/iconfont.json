@@ -1,0 +1,37 @@
+{
+  "id": "3562910",
+  "name": "smile",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "654295",
+      "name": "笑脸",
+      "font_class": "xiaolian",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "722180",
+      "name": "笑脸、成功",
+      "font_class": "xiaolianchenggong",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "4735335",
+      "name": "icon_笑脸-面",
+      "font_class": "icon_xiaolian-mian",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "11903017",
+      "name": "笑脸",
+      "font_class": "xiaolian1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}

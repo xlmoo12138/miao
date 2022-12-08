@@ -1,0 +1,37 @@
+{
+  "id": "3550046",
+  "name": "MI",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "463375",
+      "name": "fangdajing",
+      "font_class": "fangdajing",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "49355",
+      "name": "天猫购物车 ",
+      "font_class": "gouwuche2",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "394279",
+      "name": "user",
+      "font_class": "caidan07",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "15838464",
+      "name": "download",
+      "font_class": "download",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    }
+  ]
+}

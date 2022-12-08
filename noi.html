@@ -771,6 +771,7 @@
 <script  id="ch0105/19">
   debugger
   var n = Number(prompt())
+      var times = 0
 
   for (var i = 0; i < n; i++) {
     var x = Number(prompt())
@@ -778,8 +779,7 @@
     var p = Number(prompt())
 
     var d = Math.sqrt((x * x + y * y))
-    var t = (d / 50) * 2 + p * 1 + p * 0.5
-    var times = 0
+    var t = (d / 50) * 2 + p * 1.5
     times = times + t
   }
   console.log(Math.ceil(times));
@@ -814,6 +814,7 @@
     console.log('End');
   }
 
+
 </script>
 <script  id="ch0105/22">
   debugger
@@ -837,7 +838,6 @@
     }
   }
 
-
 </script>
 <script  id="ch0105/23">
   debugger
@@ -859,20 +859,30 @@
 </script>
 <script  id="ch0105/24">
   var n = Number(prompt())
-  var count = 0 // 记录血压正常时长
+      var count = 0
+      var max = 0
 
   for (var i = 0; i < n; i++) {
     var a = Number(prompt())
     var b = Number(prompt())
+    var flag = false
 
-    if (a > 90 && a < 140 && b >= 60 && b <= 90) {
-      count += 1
+    if (a >= 90 && a <= 140 && b >= 60 && b <= 90) {
+      flag = true
     }
-  }
-  console.log(count);
+    if (!flag) {
+      count = 0
+    } else {
+      count++
+      if (count > max) {
+        max = count
+      }
+            }
+          }
+          console.log(max);
 </script>
 <script  id="ch0105/25">
-  for (var decimal = 0; ; decimal ++) {
+/*   for (var decimal = 0; ; decimal ++) {
     var sty = decimal.toString(7)
     var nvy = decimal.toString(9)
 
@@ -880,6 +890,24 @@
       console.log(decimal, sty, nvy);
       break
     }
+  } */
+
+
+    for (var x = 81; x < 342; x++) {
+      var a7 = x % 7   //  7进制个位数
+      var b7 = (x - x % 7) / 7 % 7  // 7进制十位数
+      var c7 = (x - x % 7 - b7 * 7) / 7 / 7 % 7   //  7进制百位数
+
+
+      var a9 = x % 9   //  9进制个位数
+      var b9 = (x - x % 9) / 9 % 9  // 9进制十位数
+      var c9 = (x - x % 9 - b9 * 9) / 9 / 9 % 9   //  9进制百位数
+
+      if (a7 == c9 && b7 == b9 && c7 == a9) {
+        console.log(x);
+        console.log('' + c7 + b7 + a7);
+        console.log('' + c9 + b9 + a9);
+      }
   }
 
 </script>
@@ -921,8 +949,7 @@
     console.log(digit);
   }
 </script>
-<script  id="ch0105/29">
-  debugger
+<script id="ch0105/29">
   var n = Number(prompt())
   var m = String(n)
   var p = ''
@@ -1029,9 +1056,12 @@
   var x = Number(prompt())
   var n = Number(prompt())
   var sum = 0
+      var p = 1
 
   for (var i = 0; i <= n; i++) {
-    sum += Math.pow(x, i)
+    sum += p
+    p *= x
+    // sum += Math.pow(x, i)
   }
   console.log(sum.toFixed(2));
 </script>
@@ -1134,7 +1164,37 @@
   console.log(count);
 </script>
 <script  id="ch0105/42">
-  var m = Number(prompt())
+      var h = Number(prompt())
+      var w = Number(prompt())
+      var char = prompt()
+      var fill = Number(prompt())
+
+      var edgeLine = char  // 边缘行
+      var midLine = char  // 中间行
+      for (var i = 1; i < w - 1; i++) {
+        edgeLine += char
+        if (fill) {
+          midLine += char
+        } else {
+          midLine += ' '
+        }
+      }
+
+      edgeLine += char
+      midLine += char
+
+      var result = edgeLine + '\n'
+
+      for (var j = 1; j < h - 1; j++) {
+        result += midLine + '\n'
+      }
+
+      result += edgeLine
+
+      console.log(result);
+
+
+/*   var m = Number(prompt())
   var n = Number(prompt())
   var symbol = prompt()
   var flag = Number(prompt())
@@ -1166,7 +1226,7 @@
       }
     }
     console.log(str);
-  }
+  } */
 
 </script>
 <script  id="ch0105/43">
@@ -1258,169 +1318,452 @@
   console.log(sum); */
 </script>
 <script  id="narcissistic">
-  var n = Number(prompt())
-  var m = '' + n
-  var sum = 0
+  // 获取n的位宽，即获取n是几位数
+  // 两位数返回2，三位数返回3，依此类推
+  function digitWidth(n) {
+    var w = 0
+    //看这个数能除以10除多少次
+    do {
+      var ge = n % 10
+      w++
+      n = (n - ge) / 10
+    } while (n > 0)
 
-  for (var i = 0; i < m.length; i++) {
-    var digit = n % 10
-    n = Math.floor(n / 10)
-
-    var j = 0
-    var first = 1
-    while (j < m.length) {
-      first *= digit
-      j++
-    }
-    sum += first
+    return w
   }
 
-  if (sum == +m ) {
+  function isNarcissistic(n) {
+    //先得到数字的位宽
+    var width = digitWidth(n)
+    var sum = 0
+
+    // 取出n的每个位上的数
+    var m = n // 用m存储n的初始值以备后续跟sum做对比
+    while (n > 0) {
+      var ge = n % 10
+      sum += Math.pow(ge, width) // 将每个位上的数的width次方求和
+      n = (n - ge) / 10
+    }
+
+    if (sum === m) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  var n = +prompt()
+  if (isNarcissistic(n)) {
     console.log('YES');
   } else {
     console.log('NO');
   }
 </script>
 <script  id="narcissistics">
-  for (var i = 100; i < 1000; i++) {
-    var d = i           //  保存i的值
-    var m = '' + i
-    var sum = 0
-    for (var j = 0; j < m.length; j++) {
-      var digit = d % 10
-      d = Math.floor(d / 10)
+   // 获取n的位宽，即获取n是几位数
+  // 两位数返回2，三位数返回3，依此类推
+  function digitWidth(n) {
+    var w = 0
+    //看这个数能除以10除多少次
+    do {
+      var ge = n % 10
+      w++
+      n = (n - ge) / 10
+    } while (n > 0)
 
-      var k = 0
-      var first = 1
-      while (k < m.length) {
-        first *= digit
-        k += 1
-      }
-      sum += first
+    return w
+  }
+
+  function isNarcissistic(n) {
+    //先得到数字的位宽
+    var width = digitWidth(n)
+    var sum = 0
+
+    // 取出n的每个位上的数
+    var m = n // 用m存储n的初始值以备后续跟sum做对比
+    while (n > 0) {
+      var ge = n % 10
+      sum += Math.pow(ge, width) // 将每个位上的数的width次方求和
+      n = (n - ge) / 10
     }
-    if (sum == i) {
+
+    if (sum === m) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  for (var i = 10; i < 1000; i++) {
+    if (isNarcissistic(i)) {
       console.log(i);
     }
   }
 </script>
 <script  id="palindrom">
-  debugger
-  var n = Number(prompt())
-  var m = '' + n
-  var d = m.length
-  var flag = 0
+  function isPalindrom(n) {
+    var str = ''
 
-  for (var i = 0; i < d; i++) {
-    if (m.charAt(i) == m.charAt(d - (i + 1))) {
-      flag = 1
+    var m = n
+    do {
+      var ge = n % 10
+      str += ge
+      n = (n - ge) / 10
+    } while (n > 0)
+
+    if (Number(str) == m) {
+      return true
     } else {
-      flag = 0
-      break
+      return false
     }
   }
-  if (flag) {
+
+  let n = +prompt()
+  if (isPalindrom(n)) {
     console.log('YES');
   } else {
     console.log('NO');
   }
 </script>
 <script  id="weekday">
+  // 判断是否是闰年
+  function isLeapYear(year) {
+    if (year % 400 == 0) {
+      return true
+    }
+    if (year % 100 == 0) {
+      return false
+    }
+    if (year % 4 == 0) {
+      return true
+    }
+    return false
+  }
 
-</script>
-<script  id="complete-number">
-  var n = Number(prompt())
-  var sum = 1
-
-  for (var i = 2; i < n; i++) {
-    if (n % i == 0) {
-      sum += i
+  // 获取某年某月有多少天
+  function getMonthDay(year, month) {
+    var days = 0
+    switch (month) {
+      case 2:
+        if (isLeapYear(year)) {
+          return 29
+        } else {
+          return 28
+        }
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        return 31
+      default:
+        return 30
     }
   }
-  if (sum == n) {
+
+  function weekday(year,month) {
+    var y = year - 1
+    var days = y * 365 + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400)
+    for (var m = 1; m < month; m++) {
+      days += getMonthDay(year, m)
+    }
+    days++  // 加上当月的第一天
+    return days % 7
+  }
+  var year = +prompt()
+  var month = +prompt()
+
+  console.log(weekday(year,month));
+</script>
+<script  id="complete-number">
+  function isCompleteNumber(n) {
+    let sum = 1
+    let end = Math.sqrt(n)
+
+    for (let i = 2; i < end; i++) {
+      if (n % i == 0) {
+        let j = n / i
+        sum += i + j
+      }
+    }
+    // end与自身下取整后的结果相同，说明它是整数
+    if (end == Math.floor(end)) {
+      sum += end
+    }
+
+    // return sum === n
+
+    if (sum === n) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  var n = +prompt()
+  if (isCompleteNumber(n)) {
     console.log('YES');
   } else {
     console.log('NO');
   }
 </script>
 <script  id="complete-numbers">
-  for (var j = 6; j < 500; j++) {
-    var sum = 1
-    for (var i = 2; i < j ; i++) {
-      if (j % i == 0) {
-        sum += i
+
+  function isCompleteNumber(n) {
+    let sum = 1
+    let end = Math.sqrt(n)
+
+    for (let i = 2; i < end; i++) {
+      if (n % i == 0) {
+        let j = n / i
+        sum += i + j
       }
     }
-    if (sum == j) {
-      console.log(j);
+    // end与自身下取整后的结果相同，说明它是整数
+    if (end == Math.floor(end)) {
+      sum += end
+    }
+
+    // return sum === n
+
+    if (sum === n) {
+      return true
+    } else {
+      return false
+    }
+  }
+  for (var i = 0; i < 1000; i++) {
+    if (isCompleteNumber(i)) {
+      console.log(i);
     }
   }
 </script>
 <script  id="prime">
-  var n = Number(prompt())
-  var flag = 0
-
-  for (var i = 2; i < Math.sqrt(n); i++) {
-    if (n % i == 0) {
-      flag = 1
+  function isPrime(n) {
+    if (n < 2) {
+      return false
     }
+
+    var end = Math.sqrt(n)
+    for (var i = 2; i <= end; i++) {
+      if (n % i == 0) {
+        return false
+      }
+    }
+
+    return true
   }
-  if (n == 1) {
-    flag = 1
-  }
-  if (flag == 0) {
+  var n = +prompt()
+
+  if (isPrime(n)) {
     console.log('YES');
   } else {
     console.log('NO');
   }
+
 </script>
 <script  id="primes">
-  for (var i = 2; i < 100; i++) {
-    for (var j = 2; j < Math.sqrt(i); j++) {
-      if (i % j == 0) {
-        break
+
+  function isPrime(n) {
+    if (n < 2) {
+      return false
+    }
+
+    var end = Math.sqrt(n)
+    for (var i = 2; i <= end; i++) {
+      if (n % i == 0) {
+        return false
       }
     }
-    if (j > Math.sqrt(i)) {
+
+    return true
+  }
+
+  for (var i = 0; i < 100; i++) {
+    if (isPrime(i)) {
       console.log(i);
     }
   }
 </script>
 <script  id="itob">
-  var n = Number(prompt())
+  function numberToChar(ge) {
+    var c = ''
+    if (ge == 0) {
+      c = '0'
+    }
+    if (ge == 1) {
+      c = '1'
+    }
+    if (ge == 2) {
+      c = '2'
+    }
+    if (ge == 3) {
+      c = '3'
+    }
+    if (ge == 4) {
+      c = '4'
+    }
+    if (ge == 5) {
+      c = '5'
+    }
+    if (ge == 6) {
+      c = '6'
+    }
+    if (ge == 7) {
+      c = '7'
+    }
+    if (ge == 8) {
+      c = '8'
+    }
+    if (ge == 9) {
+      c = '9'
+    }
+    return c
+  }
 
-  console.log('' + n);
+  function itob(n) {
+    var str = ''
+
+    if (n < 0) {
+      var flag = 1
+      n *= -1
+    }
+
+    do {
+      var ge = n % 10
+      str = numberToChar(ge) + str
+      n = (n - ge) / 10
+    } while (n > 0)
+
+    if (flag) {
+      str = '-' + str
+      return str
+    } else {
+      return str
+    }
+  }
+
+  var n = +prompt()
+  console.log(itob(n));
 </script>
-<script  id="lcf&lcm">
+<script id="lcf&lcm">
+  function LargestCommonFactor(m, n) {
+    do {
+      var r = m % n
+      m = n
+      n = r
+    } while (r != 0)
+
+    return m
+  }
+
+  function LeastCommonFactor(m, n) {
+    var result = m * n / LargestCommonFactor(m, n)
+
+    return result
+  }
+
   var m = Number(prompt())
   var n = Number(prompt())
-  var temp, num1 = m, num2 = n
+  var r1 = LargestCommonFactor(m, n)
+  var r2 = LeastCommonFactor(m, n)
 
-  if (m >= n) {
-    while (n != 0) {
-      temp = m % n
-      m = n
-      n = temp
-    }
-    console.log(m, (num1 * num2) / m);
-  }
-  if (m <= n) {
-    while (m != 0) {
-      temp = n % m
-      n = m
-      m = temp
-    }
-    console.log(n, (num1 * num2) / n);
-  }
+  console.log(r1, r2);
+
 </script>
 <script  id="sqrt">
-  var a = Number(prompt())
-  var x0, x1, x2
 
-  x0 = a / 2
-  x1 = (1 / 2) * (x0 + a / x0)
-  x2 = (1 / 2) * (x1 + a / x1)
-  x3 = (1 / 2) * (x2 + a / x2)
+  // 二分法
+  // 设置一个上下限，然后每次排除一半的可能性
+  // 一路向结果逼近
+  function sqrt(n) {
+    var low = 0
+    var high = Math.max(n,2)
 
-  console.log(x3.toFixed(3));
+    while (high - low > 0.00000001) {
+      var middle = (low + high) / 2
+      if (middle * middle > n) {
+        // 说明根号n在0到middle之间
+        high = middle
+      } else if (middle * middle < n){
+        // 说明根号n在middle到high之间
+        low = middle
+      } else if (middle * middle == n){
+        return middle
+      }
+    }
+    return (low + high) / 2
+  }
+  var n = +prompt()
+  console.log(sqrt(n).toFixed(3));
 
+/*
+  牛顿法 x1 = (x0 + n / x0) / 2
+
+  function sqrt1(n) {
+    var x = n
+    while (Math.abs(x * x - n) > 0.00000000000001) {
+      x = (x  + n / x) / 2
+    }
+    return x
+  }
+
+  var n = +prompt()
+  console.log(sqrt1(n)); */
+
+</script>
+
+<script>
+  var factorial = function (n) {
+    var result = 1
+
+    for (var i = 1; i <= n; i++) {
+      result *= i
+    }
+    return result
+  }
+</script>
+<script>
+  var has7 = function (n) {
+    if (n % 7 == 0) {
+      return true
+    }
+
+    while (n > 0) {
+      var d = n % 10
+      if (d === 7) {
+        return true
+      }
+      n = (n - d) / 10
+    }
+
+    return false
+  }
+</script>
+<script>
+  var fbn = function (n) {
+    var a = 0
+    var b = 1
+
+    for (var i = 0; i < n; i++) {
+      var c = a + b
+      a = b
+      b = c
+    }
+    return a
+  }
+</script>
+<script>
+  var triangle = function (size) {
+    var str = ''
+    var line = ''
+
+    for (var i = 0; i < size; i++) {
+      line += '*'
+      str += line + '\n'
+    }
+    return str
+  }
 </script>

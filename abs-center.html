@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0.08);
+      box-shadow: inset 0 0 1px red;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      zoom: 2;
+    }
+
+    .outter1 {
+      width: 200px;
+      height: 200px;
+      background-color: #bfa;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .inner1 {
+      display: inline-block;
+      background-color: pink;
+    }
+
+    .outter2 {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      background-color: tan;
+      position: relative;
+    }
+
+    .inner2 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      xborder: 1px solid;
+      transform: translate(-50%, -50%);
+    }
+
+    .outter3 {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      background-color: lime;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .outter4 {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      background-color: yellow;
+      position: relative;
+    }
+    .inner4 {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .outter5 {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      background-color: violet;
+      text-align: center;
+    }
+    .inner5 {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 50px auto;
+      line-height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outter1">
+    <div class="inner1">inline-block+table-cell</div>
+  </div>
+  <div class="outter2">
+    <div class="inner2">absolute+transform</div>
+  </div>
+  <div class="outter3">
+    <div class="inner3">flex</div>
+  </div>
+  <div class="outter4">
+    <div class="inner4">absolute</div>
+  </div>
+  <div class="outter5">
+    <div class="inner5">inline-block</div>
+  </div>
+</body>
+
+</html>
